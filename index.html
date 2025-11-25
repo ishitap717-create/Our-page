@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love 💖</title>
+  <style>
+    
+    body {
+      background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
+      text-align: center;
+      font-family: "Comic Sans MS", cursive;
+      color: #444;
+      animation: fadeIn 2s ease-in;
+    }
+    h1 { font-size: 3em; margin-top: 50px; }
+    .question {
+      margin: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 20px;
+      display: inline-block;
+      box-shadow: 0 0 10px #ffa6c9;
+      transition: transform 0.3s;
+    }
+    .question:hover { transform: scale(1.05); }
+    img {
+      width: 250px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #ff69b4;
+      margin-top: 20px;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100px); opacity: 0; }
+}
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateY(-20px); }
+}
+#memory {
+  width: 80%;       /* increases size, adjust 70–100% */
+  max-width: 800px; /* limits it so it doesn’t get TOO huge */
+  border-radius: 20px;
+  box-shadow: 0 0 20px #ff85a2;
+  margin-top: 30px;
+  transition: transform 1s ease, box-shadow 1s ease;
+}
+h1 {
+  text-align: center;
+  transform: translateX(50px);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    transform: translateX(0); /* reset to center on phones */
+  }
+}
+
+button {
+  background-color: #ff9eb5;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: white;
+  font-size: 1em;
+  margin: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ffb6c1;
+  transition: 0.3s;
+}
+button:hover {
+  background-color: #dbcad0;
+  transform: scale(1.1);
+}
+
+  </style>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <h1 class="animate__animated animate__bounceInDown">Hi,My Love💞 </h1>
+  <p>You make every day magical ✨</p>
+
+  <div onclick="this.innerHTML='Ranjheya ve 🎼🎵💞'"  class="question">💌 What’s our favorite song?</div>
+  <div onclick="this.innerHTML='You Said😘💋'" class="question">🐻 Who said “I love you” first?</div>
+  <div onclick="this.innerHTML='Butter scotch pastry🍰💖'" class="question">🍰 What’s your favorite dessert?</div>
+<br>
+<div class="poem">
+  <p>💌 You’re my sunshine in every storm,<br>
+  My calm, my cozy, my heart’s warm.<br>
+  From day one till forevermore,<br>
+  You’re all I’ll ever adore. 💖</p>
+</div>
+<br>
+<p id="loveDays"></p>
+<img id="memory" src="we.png"  width="4050" style="border-radius:20px; box-shadow:0 0 15px pink;">
+<script>
+  document.addEventListener("mousemove", (e) => {
+  const trail = document.createElement("div");
+  trail.textContent = "💕";
+  trail.style.position = "absolute";
+  trail.style.left = e.pageX + "px";
+  trail.style.top = e.pageY + "px";
+  trail.style.pointerEvents = "none";
+  trail.style.animation = "fadeOut 1s forwards";
+  document.body.appendChild(trail);
+  setTimeout(() => trail.remove(), 1000);
+});
+const nextAnniversary = new Date("2026-01-22");
+const diff = nextAnniversary - new Date();
+const daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24));
+document.body.insertAdjacentHTML("beforeend", `<p>💖 ${daysLeft} days left until our next anniversary 💖</p>`);
+
+  const startDate = new Date("2019-01-22"); // 💖 your special date
+  const today = new Date();
+  const diffTime = today - startDate;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  document.getElementById("loveDays").innerHTML =
+    "We've been together for 💞 " + diffDays + " days 💞";
+    const heart = document.createElement("div");
+  heart.innerHTML = "💗";
+  heart.style.position = "fixed";
+  heart.style.fontSize = "2rem";
+  heart.style.top = Math.random() * 100 + "%";
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.animation = "float 5s linear infinite";
+  document.body.appendChild(heart);
+  setInterval(() => {
+    const h = heart.cloneNode(true);
+    h.style.top = Math.random() * 100 + "%";
+    h.style.left = Math.random() * 100 + "%";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 5000);
+  }, 1000);
+  const photos = ["we.png", "we2.png", "we3.png", "we4.png", "we5.jpg", "we6.jpg", "we7.jpg", "us.png", "we8.jpg", "we9.jpg", "we10.jpg", "we11.png", "we12.png", "we13.png"];
+setInterval(() => {
+  const h = heart.cloneNode(true);
+  h.style.top = Math.random() * 100 + "%";
+  h.style.left = Math.random() * 100 + "%";
+  h.style.fontSize = (Math.random() * 1.5 + 1) + "rem";
+  h.style.animation = `float ${Math.random() * 3 + 3}s linear`;
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 5000);
+}, 800);
+
+  let index = 0;
+ setInterval(() => {
+  index = (index + 1) % photos.length;
+  document.getElementById("memory").src = photos[index];
+  console.log("Showing:", photos[index]); // ✅ Add this line
+}, 2000);
+
+</script>
+<p id="loveMsg"></p>
+<script>
+  const msgs = [
+    "You’re my favorite person 💕",
+    "Every day with you feels special ✨",
+    "You make my world brighter 🌸",
+    "I love your smile 😘",
+    "Forever and always 💖"
+  ];
+  document.getElementById("loveMsg").innerHTML =
+    msgs[Math.floor(Math.random() * msgs.length)];
+    const text = "You make my world brighter 🌸";
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("loveMsg").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 100);
+  }
+}
+typeWriter();
+
+</script>
+<h2>💞 Quick Love Quiz 💞</h2>
+<p>Where did we first meet?</p>
+<button onclick="alert('Yes! At Om guest house 💕')">My House</button>
+<button onclick="alert('Nope 😜')">Café</button>
+
+  <p>Click below for a surprise 🎁</p>
+  <button onclick="alert('I love you forever 💖')">Click Me!</button>
+<button onclick="alert('Sending virtual hug 🤗💞')">Click for a Hug!</button>
+
+
+</script>
+
+<button onclick="playMusic()">🎶 Play Our Song</button>
+<audio id="bgMusic" loop>
+  <source src="Ranjheya_Ve_Zain_Zohaib.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  
+
+function playMusic() {
+  const music = document.getElementById("bgMusic");
+  music.play();
+}
+
+</script>
+
+
+
+</body>
+</html>
